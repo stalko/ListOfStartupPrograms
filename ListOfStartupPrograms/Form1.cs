@@ -32,8 +32,8 @@ namespace ListOfStartupPrograms
                     programs[i].Command,
                     programs[i].FilePath,
                     programs[i].TypeAutorun.ToString(),
-                    programs[i].IsAutorunExists ? "Yes" : "No",
-                    programs[i].IsAutorunCorrect ? "Yes" : "No",
+                    programs[i].IsDigitalSignatureExists ? "Yes" : "No",
+                    programs[i].IsDigitalSignatureCorrect ? "Yes" : "No",
                     programs[i].CompanyName
                 };
                 listViewPrograms.SmallImageList.Images.Add(programs[i].Image);

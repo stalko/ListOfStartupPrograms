@@ -13,8 +13,8 @@ namespace ListOfStartupPrograms
         public string Command { get; set; }
         public string FilePath { get; set; }
         public TypeAutorun TypeAutorun { get; set; }
-        public bool IsAutorunExists { get; set; }
-        public bool IsAutorunCorrect { get; set; }
+        public bool IsDigitalSignatureExists { get; set; }
+        public bool IsDigitalSignatureCorrect { get; set; }
         public string CompanyName { get; set; }
     }
 

@@ -1,12 +1,13 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
 namespace ListOfStartupPrograms.StartupPrograms
 {
-    class RegistryStartupPrograms : IStartupPrograms
+    class RegistryStartupPrograms : StartupPrograms, IStartupPrograms
     {
         public List<ProgramDTO> ListPrograms()
         {
@@ -39,6 +40,7 @@ namespace ListOfStartupPrograms.StartupPrograms
                     Command = GetValue,
                     TypeAutorun = TypeAutorun.Registry
                 };
+                CheckDigitalSignature(program);
                 list.Add(program);
             }
             return list;
@@ -52,5 +54,6 @@ namespace ListOfStartupPrograms.StartupPrograms
             else
                 return str;
         }
+
     }
 }

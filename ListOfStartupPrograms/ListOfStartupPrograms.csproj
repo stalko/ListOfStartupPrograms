@@ -60,6 +60,8 @@
     <Compile Include="StartupPrograms\RegistryStartupPrograms.cs" />
     <Compile Include="StartupPrograms\ScheduledStartupPrograms.cs" />
     <Compile Include="StartupPrograms\StartMenuStartupPrograms.cs" />
+    <Compile Include="AllStartupPrograms.cs" />
+    <Compile Include="StartupPrograms\StartupPrograms.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

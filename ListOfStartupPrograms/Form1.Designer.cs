@@ -34,8 +34,8 @@
             this.Command = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.FilePath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TypeAutorun = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.IsAutorunExists = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.IsAutorunCorrect = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.IsDigitalSignatureExists = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.IsDigitalSignatureCorrect = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CompanyName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
@@ -50,8 +50,8 @@
             this.Command,
             this.FilePath,
             this.TypeAutorun,
-            this.IsAutorunExists,
-            this.IsAutorunCorrect,
+            this.IsDigitalSignatureExists,
+            this.IsDigitalSignatureCorrect,
             this.CompanyName});
             this.listViewPrograms.GridLines = true;
             this.listViewPrograms.Location = new System.Drawing.Point(12, 12);
@@ -88,13 +88,13 @@
             this.TypeAutorun.Text = "Type Autorun";
             this.TypeAutorun.Width = 88;
             // 
-            // IsAutorunExists
+            // IsDigitalSignatureExists
             // 
-            this.IsAutorunExists.Text = "IsAutorunExists";
+            this.IsDigitalSignatureExists.Text = "Is Digital Signature Exists";
             // 
-            // IsAutorunCorrect
+            // IsDigitalSignatureCorrect
             // 
-            this.IsAutorunCorrect.Text = "IsAutorunCorrect";
+            this.IsDigitalSignatureCorrect.Text = "Is Digital Signature Correct";
             // 
             // CompanyName
             // 
@@ -120,8 +120,8 @@
         private System.Windows.Forms.ColumnHeader Command;
         private System.Windows.Forms.ColumnHeader FilePath;
         private System.Windows.Forms.ColumnHeader TypeAutorun;
-        private System.Windows.Forms.ColumnHeader IsAutorunExists;
-        private System.Windows.Forms.ColumnHeader IsAutorunCorrect;
+        private System.Windows.Forms.ColumnHeader IsDigitalSignatureExists;
+        private System.Windows.Forms.ColumnHeader IsDigitalSignatureCorrect;
         private System.Windows.Forms.ColumnHeader CompanyName;
     }
 }
