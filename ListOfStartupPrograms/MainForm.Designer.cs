@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.listViewPrograms = new System.Windows.Forms.ListView();
-            this.Icon = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.FileIcon = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.FileName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Command = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.FilePath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TypeAutorun = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.IsDigitalSignatureExists = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.IsDigitalSignatureCorrect = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.CompanyName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.AuthorCompanyName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.progressBarWait = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // listViewPrograms
@@ -45,28 +46,28 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewPrograms.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Icon,
+            this.FileIcon,
             this.FileName,
             this.Command,
             this.FilePath,
             this.TypeAutorun,
             this.IsDigitalSignatureExists,
             this.IsDigitalSignatureCorrect,
-            this.CompanyName});
+            this.AuthorCompanyName});
             this.listViewPrograms.GridLines = true;
             this.listViewPrograms.Location = new System.Drawing.Point(12, 12);
             this.listViewPrograms.MultiSelect = false;
             this.listViewPrograms.Name = "listViewPrograms";
-            this.listViewPrograms.Size = new System.Drawing.Size(547, 335);
+            this.listViewPrograms.Size = new System.Drawing.Size(547, 312);
             this.listViewPrograms.TabIndex = 0;
             this.listViewPrograms.UseCompatibleStateImageBehavior = false;
             this.listViewPrograms.View = System.Windows.Forms.View.Details;
             this.listViewPrograms.DoubleClick += new System.EventHandler(this.listViewPrograms_DoubleClick);
             // 
-            // Icon
+            // FileIcon
             // 
-            this.Icon.Text = "Icon";
-            this.Icon.Width = 71;
+            this.FileIcon.Text = "Icon";
+            this.FileIcon.Width = 71;
             // 
             // FileName
             // 
@@ -96,17 +97,27 @@
             // 
             this.IsDigitalSignatureCorrect.Text = "Is Digital Signature Correct";
             // 
-            // CompanyName
+            // AuthorCompanyName
             // 
-            this.CompanyName.Text = "Company Name";
+            this.AuthorCompanyName.Text = "Company Name";
             // 
-            // Form1
+            // progressBarWait
+            // 
+            this.progressBarWait.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBarWait.Location = new System.Drawing.Point(12, 330);
+            this.progressBarWait.Name = "progressBarWait";
+            this.progressBarWait.Size = new System.Drawing.Size(547, 23);
+            this.progressBarWait.TabIndex = 1;
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(571, 359);
+            this.Controls.Add(this.progressBarWait);
             this.Controls.Add(this.listViewPrograms);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "List Of Startup Programs";
             this.ResumeLayout(false);
 
@@ -115,14 +126,15 @@
         #endregion
 
         private System.Windows.Forms.ListView listViewPrograms;
-        private System.Windows.Forms.ColumnHeader Icon;
+        private System.Windows.Forms.ColumnHeader FileIcon;
         private System.Windows.Forms.ColumnHeader FileName;
         private System.Windows.Forms.ColumnHeader Command;
         private System.Windows.Forms.ColumnHeader FilePath;
         private System.Windows.Forms.ColumnHeader TypeAutorun;
         private System.Windows.Forms.ColumnHeader IsDigitalSignatureExists;
         private System.Windows.Forms.ColumnHeader IsDigitalSignatureCorrect;
-        private System.Windows.Forms.ColumnHeader CompanyName;
+        private System.Windows.Forms.ColumnHeader AuthorCompanyName;
+        private System.Windows.Forms.ProgressBar progressBarWait;
     }
 }
 

@@ -34,11 +34,7 @@ namespace ListOfStartupPrograms.StartupPrograms
                     {
                         if (!(item is IExecAction)) continue;
                         var action = item as IExecAction;
-                        var asdasd = task.Name + "!!!!" + task.Path;
                         var path = Environment.ExpandEnvironmentVariables(action.Path);
-                        var id = action.Id;
-                        var at = action.Arguments;
-                        var asds = action.WorkingDirectory;
                         var program = new ProgramDTO()
                         {
                             Image = GetImage(path),

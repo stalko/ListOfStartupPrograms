@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using ListOfStartupPrograms.StartupPrograms;
 using System.IO;
 using System.Diagnostics;
+using System.Threading;
 
 namespace ListOfStartupPrograms
 {
@@ -19,13 +20,24 @@ namespace ListOfStartupPrograms
         public MainForm()
         {
             InitializeComponent();
-            var startup = new AllStartupPrograms();
+            progressBarWait.MarqueeAnimationSpeed = 2;
+            progressBarWait.Style = ProgressBarStyle.Marquee;
 
+            var bw = new BackgroundWorker();
+            bw.DoWork += ExecuteOperations;
+            bw.RunWorkerAsync();
+        }
+
+        private void ExecuteOperations(object sender, DoWorkEventArgs e)
+        {
+            var startup = new AllStartupPrograms();
             programs = startup.GetAllPrograms();
-            listViewPrograms.SmallImageList = new ImageList();
-            for (int i = 0; i < programs.Count; i++)
+            BeginInvoke(new Action(() =>
             {
-                string[] lv = new string[] {
+                listViewPrograms.SmallImageList = new ImageList();
+                for (int i = 0; i < programs.Count; i++)
+                {
+                    string[] lv = new string[] {
                     "",
                     programs[i].Name,
                     programs[i].Command,
@@ -35,9 +47,11 @@ namespace ListOfStartupPrograms
                     programs[i].IsDigitalSignatureCorrect ? "Yes" : "No",
                     programs[i].CompanyName
                 };
-                listViewPrograms.SmallImageList.Images.Add(programs[i].Image);
-                listViewPrograms.Items.Add(new ListViewItem(lv, i));
-            }
+                    listViewPrograms.SmallImageList.Images.Add(programs[i].Image);
+                    listViewPrograms.Items.Add(new ListViewItem(lv, i));
+                }
+                progressBarWait.Style = ProgressBarStyle.Continuous;
+            }));
         }
 
         private void listViewPrograms_DoubleClick(object sender, EventArgs e)
@@ -48,6 +62,10 @@ namespace ListOfStartupPrograms
                 if (File.Exists(programs[id].FilePath))
                 {
                     Process.Start("explorer.exe", "/select, " + programs[id].FilePath);
+                }
+                else
+                {
+                    MessageBox.Show("Файл не найден!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
