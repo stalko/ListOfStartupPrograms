@@ -12,12 +12,11 @@ using System.Diagnostics;
 
 namespace ListOfStartupPrograms
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        ImageList ig = new ImageList();
         List<ProgramDTO> programs;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             var startup = new AllStartupPrograms();

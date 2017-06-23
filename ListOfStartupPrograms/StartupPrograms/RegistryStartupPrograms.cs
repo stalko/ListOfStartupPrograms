@@ -34,7 +34,7 @@ namespace ListOfStartupPrograms.StartupPrograms
                 string filePath = GetPathToProgram(GetValue);
                 var program = new ProgramDTO()
                 {
-                    Image = System.Drawing.Icon.ExtractAssociatedIcon(filePath),
+                    Image = GetImage(filePath),
                     Name = Programs,
                     FilePath = filePath,
                     Command = GetValue,
