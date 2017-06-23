@@ -13,8 +13,7 @@ namespace ListOfStartupPrograms.StartupPrograms
             TaskScheduler.TaskScheduler scheduler = new TaskScheduler.TaskScheduler();
             scheduler.Connect(null, null, null, null); //run as current user.
             ITaskFolder root = scheduler.GetFolder("\\");
-            var list = GetActions(root);
-            return list;
+            return GetActions(root);
         }
 
         private List<ProgramDTO> GetActions(ITaskFolder folder)

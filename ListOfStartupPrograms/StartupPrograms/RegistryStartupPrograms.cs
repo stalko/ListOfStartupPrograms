@@ -63,6 +63,5 @@ namespace ListOfStartupPrograms.StartupPrograms
             else
                 return str;
         }
-
     }
 }
