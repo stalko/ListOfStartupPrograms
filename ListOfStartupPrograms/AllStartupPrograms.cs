@@ -11,7 +11,7 @@ namespace ListOfStartupPrograms.StartupPrograms
         {
             var list = new List<ProgramDTO>();
             list.AddRange(new RegistryStartupPrograms().ListPrograms());
-            //list.AddRange(new ScheduledStartupPrograms().ListPrograms());
+            list.AddRange(new ScheduledStartupPrograms().ListPrograms());
             list.AddRange(new StartMenuStartupPrograms().ListPrograms());
             return list;
         }

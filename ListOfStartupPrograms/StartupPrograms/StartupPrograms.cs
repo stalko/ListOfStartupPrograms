@@ -14,7 +14,14 @@ namespace ListOfStartupPrograms.StartupPrograms
     {
         protected Icon GetImage(string filePath)
         {
-            return Icon.ExtractAssociatedIcon(filePath);
+            try
+            {
+                return Icon.ExtractAssociatedIcon(filePath);
+            }
+            catch
+            {
+                return SystemIcons.WinLogo;
+            }
         }
         protected void CheckDigitalSignature(ProgramDTO program)
         {

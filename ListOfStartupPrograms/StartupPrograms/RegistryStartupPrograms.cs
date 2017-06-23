@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Management;
+using System.Management.Instrumentation;
 
 namespace ListOfStartupPrograms.StartupPrograms
 {
@@ -12,15 +14,22 @@ namespace ListOfStartupPrograms.StartupPrograms
         public List<ProgramDTO> ListPrograms()
         {
             var list = new List<ProgramDTO>();
-            //var key = Registry.LocalMachine.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\Run");
-            var currentUserReg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run");
-            list.AddRange(GetPrograms(currentUserReg));
-            currentUserReg.Close();
 
+            var currentUserRegRun = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run");
+            list.AddRange(GetPrograms(currentUserRegRun));
+            currentUserRegRun.Close();
+            
+            var localMachineRegRun = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run");
+            list.AddRange(GetPrograms(localMachineRegRun));
+            localMachineRegRun.Close();
 
-            var localMachineReg = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run");
-            list.AddRange(GetPrograms(localMachineReg));
-            localMachineReg.Close();
+            //var currentUserRegRunOnce = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce");
+            //list.AddRange(GetPrograms(currentUserRegRunOnce));
+            //currentUserRegRunOnce.Close();
+
+            //var localMachineRegRunOnce = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce");
+            //list.AddRange(GetPrograms(localMachineRegRunOnce));
+            //localMachineRegRunOnce.Close();
 
             return list;
         }
